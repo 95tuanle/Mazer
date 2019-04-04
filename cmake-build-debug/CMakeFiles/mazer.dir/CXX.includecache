@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/tuanle/Library/Mobile Documents/com~apple~CloudDocs/School/C++/s3574983-MazeGeneratorP1/mazer.cpp
+iostream
+-
+vector
+-
+sstream
+-
+random
+-
+ctime
+-
+stdlib.h
+-
+fstream
+-
+
