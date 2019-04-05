@@ -1,4 +1,4 @@
-# Install script for directory: /Users/tuanle/Library/Mobile Documents/com~apple~CloudDocs/School/C++/s3574983-MazeGeneratorP1
+# Install script for directory: /Users/tuanle/Downloads/s3574983-MazeGeneratorP1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/tuanle/Library/Mobile Documents/com~apple~CloudDocs/School/C++/s3574983-MazeGeneratorP1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/tuanle/Downloads/s3574983-MazeGeneratorP1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
