@@ -2,7 +2,7 @@
 
 **COSC2131 - Programming Using C++**
 
-Assignment of RMIT Programming Using C++ Course: **_Mazer_**
+Assignment 1 of RMIT Programming Using C++ Course: **_Mazer_**
 
 Lecturer: _Andrew Smith_
 
