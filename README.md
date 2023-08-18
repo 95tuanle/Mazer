@@ -8,7 +8,6 @@ Lecturer: _Andrew Smith_
 
 Student: _Le Nguyen Anh Tuan (s3574983)_
 
-
 How to use (type these commands):
 
 1.Move to folder directory
@@ -22,7 +21,6 @@ How to use (type these commands):
 3.Run mazer file
 
 `./mazer`
-
 
 **Accomplished functions:**
 
@@ -47,7 +45,6 @@ Generating maze with/without seed (`-g` or `--g`) + `--sb filename.maze`
 Generating maze with/without seed (`-g` or `--g`) + `--sv filename.svg`
 
 5.Additional function
-
 
 Validate user input (partially)
 
