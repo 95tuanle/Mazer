@@ -26,41 +26,42 @@ void printLineWithInt(const int &intToPrint);
 
 vector<int> randomGenerator(mt19937 generator, int min, int max, int times);
 
-void saveSvg(basic_string<char, char_traits<char>, allocator<char>> &fileName, const vector<edge> &vector, int width,
+void saveSvg(basic_string<char, char_traits<char>, allocator<char> > &fileName, const vector<edge> &vector, int width,
              int height);
 
-void saveBinary(basic_string<char, char_traits<char>, allocator<char>> &fileName, const vector<edge> &vector, int width,
+void saveBinary(basic_string<char, char_traits<char>, allocator<char> > &fileName, const vector<edge> &vector,
+                int width,
                 int height);
 
 int main() {
-//    get user input form console
+    //    get user input form console
     getUserInput();
 
-//    string userIn;
-//    while (userIn != "exit") {
-//        vector<string> userString = {"hello, {hello kitty}", " hello"};
-//        for (int i = 0; i < userString.size(); ++i) {
-//            printLineWith(userString[i]);
-//        }
-//    }
+    //    string userIn;
+    //    while (userIn != "exit") {
+    //        vector<string> userString = {"hello, {hello kitty}", " hello"};
+    //        for (int i = 0; i < userString.size(); ++i) {
+    //            printLineWith(userString[i]);
+    //        }
+    //    }
 
-//    srand(1);
-//    for (int i = 0; i < 20; ++i) {
-//        cout<< rand() << endl;
-//    }
+    //    srand(1);
+    //    for (int i = 0; i < 20; ++i) {
+    //        cout<< rand() << endl;
+    //    }
 
-//    mt19937 generator;
-//    if (true) {
-//        generator.seed(time(nullptr) + 123);
-//    } else {
-//        generator.seed(time(nullptr));
-//    }
-//    vector<int> random_numbers = randomGenerator(generator, 123, 456, 10);
-//    for (int i = 0; i < random_numbers.size(); ++i) {
-//        printLineWithInt(random_numbers[i]);
-//    }
+    //    mt19937 generator;
+    //    if (true) {
+    //        generator.seed(time(nullptr) + 123);
+    //    } else {
+    //        generator.seed(time(nullptr));
+    //    }
+    //    vector<int> random_numbers = randomGenerator(generator, 123, 456, 10);
+    //    for (int i = 0; i < random_numbers.size(); ++i) {
+    //        printLineWithInt(random_numbers[i]);
+    //    }
 
-//    mazeGenerator(12, 3, 6, true);
+    //    mazeGenerator(12, 3, 6, true);
 
     return 0;
 }
@@ -74,9 +75,10 @@ void getUserInput() {
     string EXIT = "exit";
     string userInput;
 
-    while (userInput != EXIT) { //check if user input is exit
+    while (userInput != EXIT) {
+        //check if user input is exit
         vector<string> userInputVector; //create vector to store user input
-//        userInputVector.clear();
+        //        userInputVector.clear();
         pair<int, bool> hasGen;
         pair<int, bool> hasGenOpt;
         pair<int, bool> hasLoadBinary;
@@ -85,19 +87,19 @@ void getUserInput() {
         pair<int, bool> hasSaveSvg;
         bool isValidInputFlag = false;
 
-//        get user input
+        //        get user input
         cout << "./mazer ";
         getline(cin, userInput);
 
-//        split it by space and add to vector
+        //        split it by space and add to vector
         stringstream stringStream(userInput);
         copy(istream_iterator<string>(stringStream), istream_iterator<string>(), back_inserter(userInputVector));
-//        check if first elment of user input vector = exit
+        //        check if first elment of user input vector = exit
         if (userInputVector[0] == EXIT) {
             break;
         }
 
-//        loop to check flag
+        //        loop to check flag
         for (int i = 0; i < userInputVector.size(); ++i) {
             if (userInputVector[i] == "--g") {
                 if (!hasGen.second) {
@@ -161,7 +163,7 @@ void getUserInput() {
                 }
             }
         }
-//        check if input contains flags/flag
+        //        check if input contains flags/flag
         if (isValidInputFlag) {
             bool canCallSaveFunctions = true;
             vector<edge> edgesVector;
@@ -171,20 +173,20 @@ void getUserInput() {
                 int seed = 0;
                 int width = 0;
                 int height = 0;
-//                printLineWithInt(seed);
-//                printLineWithInt(width);
-//                printLineWithInt(height);
+                //                printLineWithInt(seed);
+                //                printLineWithInt(width);
+                //                printLineWithInt(height);
                 try {
-//                    convert input to int
+                    //                    convert input to int
                     seed = stoi(userInputVector[hasGen.first + 1]);
                     width = stoi(userInputVector[hasGen.first + 2]);
                     height = stoi(userInputVector[hasGen.first + 3]);
-//                    cout << userInputVector[hasGen.first+1];
-//                    cout << userInputVector[hasGen.first+2];
-//                    cout << userInputVector[hasGen.first+3];
-//                  printLineWith(userInputVector[hasGen.first+1]);
-//                  printLineWith(userInputVector[hasGen.first+2]);
-//                  printLineWith(userInputVector[hasGen.first+3]);
+                    //                    cout << userInputVector[hasGen.first+1];
+                    //                    cout << userInputVector[hasGen.first+2];
+                    //                    cout << userInputVector[hasGen.first+3];
+                    //                  printLineWith(userInputVector[hasGen.first+1]);
+                    //                  printLineWith(userInputVector[hasGen.first+2]);
+                    //                  printLineWith(userInputVector[hasGen.first+3]);
                     if (seed > 0 && width > 0 && height > 0) {
                         canCallSaveFunctions = true;
                         printLineWith("calling generating func");
@@ -203,19 +205,19 @@ void getUserInput() {
             if (hasGenOpt.second) {
                 int firstField = 0;
                 int secondField = 0;
-//                printLineWithInt(firstField);
-//                printLineWithInt(secondField);
+                //                printLineWithInt(firstField);
+                //                printLineWithInt(secondField);
                 try {
-//                    convert input to int
+                    //                    convert input to int
                     firstField = stoi(userInputVector[hasGenOpt.first + 1]);
                     secondField = stoi(userInputVector[hasGenOpt.first + 2]);
-//                    printLineWithInt(firstField);
-//                    printLineWithInt(secondField);
+                    //                    printLineWithInt(firstField);
+                    //                    printLineWithInt(secondField);
                     int thirdField = 0;
-//                    printLineWithInt(thirdField);
+                    //                    printLineWithInt(thirdField);
                     try {
                         thirdField = stoi(userInputVector[hasGenOpt.first + 3]);
-//                        printLineWithInt(thirdField);
+                        //                        printLineWithInt(thirdField);
                         if (firstField > 0 && secondField > 0 && thirdField > 0) {
                             canCallSaveFunctions = true;
                             printLineWith("calling generating with optional seed func");
@@ -244,26 +246,25 @@ void getUserInput() {
                 }
             }
             if (hasLoadBinary.second) {
-//                TODO build load binary function
-//                canCallSaveFunctions = true;
+                //                TODO build load binary function
+                //                canCallSaveFunctions = true;
                 printLineWith("calling load binary func");
             }
             if (hasLoadSvg.second) {
-//                TODO build load svg function
-//                canCallSaveFunctions = true;
+                //                TODO build load svg function
+                //                canCallSaveFunctions = true;
                 printLineWith("calling load SVG func");
             }
 
             if ((hasGen.second || hasGenOpt.second || hasLoadBinary.second || hasLoadSvg.second) &&
                 canCallSaveFunctions) {
                 if (hasSaveBinary.second) {
-//                    TODO check file format and validate user input
+                    //                    TODO check file format and validate user input
                     saveBinary(userInputVector[hasSaveBinary.first + 1], edgesVector, mainWidth, mainHeight);
                     printLineWith("calling save binary func");
-
                 }
                 if (hasSaveSvg.second) {
-//                    TODO check file format and validate user input
+                    //                    TODO check file format and validate user input
                     saveSvg(userInputVector[hasSaveSvg.first + 1], edgesVector, mainWidth, mainHeight);
                     printLineWith("calling save SVG func");
                 }
@@ -273,16 +274,16 @@ void getUserInput() {
                 }
             }
         } else {
-//            if (userInputVector[0] != EXIT) {
+            //            if (userInputVector[0] != EXIT) {
             printLineWith(INVALID_INPUT_MESSAGE);
-//            }
+            //            }
         }
     }
-//    while (userInputVector[0] != EXIT && userInput != EXIT);
+    //    while (userInputVector[0] != EXIT && userInput != EXIT);
 }
 
 void
-saveBinary(basic_string<char, char_traits<char>, allocator<char>> &fileName, const vector <edge> &vector, int width,
+saveBinary(basic_string<char, char_traits<char>, allocator<char> > &fileName, const vector<edge> &vector, int width,
            int height) {
     fstream binary(fileName, ios::binary | ios::in | ios::out | ios::trunc);
     if (!binary.is_open()) {
@@ -309,20 +310,20 @@ saveBinary(basic_string<char, char_traits<char>, allocator<char>> &fileName, con
     }
 }
 
-void saveSvg(basic_string<char, char_traits<char>, allocator<char>> &fileName, const vector <edge> &vector, int width,
+void saveSvg(basic_string<char, char_traits<char>, allocator<char> > &fileName, const vector<edge> &vector, int width,
              int height) {
     ofstream svg(fileName, ofstream::out);
     svg << "<svg" << " viewBox=" << "\"0 0 " << width << " " << height << "\"" << " width" << "=" << "\"" << width * 10
-        << "\"" << " height=\"" << height * 10 << "\"" << " xmlns=" << "\"http://www.w3.org/2000/svg\">" << endl;
+            << "\"" << " height=\"" << height * 10 << "\"" << " xmlns=" << "\"http://www.w3.org/2000/svg\">" << endl;
     svg << "<rect width =" << "\'" << width << "\' " << "height=\'" << height << "\' " << "style=\'"
-        << "fill: black\' " << "/>" << endl;
+            << "fill: black\' " << "/>" << endl;
     for (auto &edge: vector) {
         int x1 = edge.first.first;
         int y1 = edge.first.second;
         int x2 = edge.second.first;
         int y2 = edge.second.second;
         svg << "<line stroke=\'" << "white\' " << "stroke-width=\'" << "0.5\'" << " x1=\'" << x1 << "\' y1=\'" << y1
-            << "\' x2=\'" << x2 << "\' y2=\'" << y2 << "\'/>" << endl;
+                << "\' x2=\'" << x2 << "\' y2=\'" << y2 << "\'/>" << endl;
     }
     svg << "</svg>";
     svg.close();
@@ -337,7 +338,7 @@ void printLineWithInt(const int &intToPrint) {
 }
 
 vector<edge> mazeGenerator(int seed, int width, int height, bool withSeed) {
-//    create an array to monitize visited cells
+    //    create an array to monitize visited cells
     bool visitedArray[height][width];
     for (int m = 0; m < height; ++m) {
         for (int i = 0; i < width; ++i) {
@@ -345,17 +346,17 @@ vector<edge> mazeGenerator(int seed, int width, int height, bool withSeed) {
         }
     }
 
-//    for (int n = 0; n < height; ++n) {
-//        for (int i = 0; i < width; ++i) {
-//            cout << n << i << " ";
-//        }
-//        cout << endl;
-//    }
+    //    for (int n = 0; n < height; ++n) {
+    //        for (int i = 0; i < width; ++i) {
+    //            cout << n << i << " ";
+    //        }
+    //        cout << endl;
+    //    }
 
 
-//    create vector to store edges
+    //    create vector to store edges
     vector<edge> edges;
-//    check user input seed
+    //    check user input seed
     if (!withSeed) {
         seed = time(nullptr);
         cout << "Your seed is " << seed << endl;
@@ -365,28 +366,28 @@ vector<edge> mazeGenerator(int seed, int width, int height, bool withSeed) {
     bool keepHunting = true;
     bool keepKilling = true;
 
-//    generate a random stating cell
+    //    generate a random stating cell
     coordinator startingCell;
     startingCell.first = rand() % height;
     startingCell.second = rand() % width;
-//    flag it as visited
+    //    flag it as visited
     visitedArray[startingCell.first][startingCell.second] = true;
-//    bool starting = true;
+    //    bool starting = true;
 
 
-//    loop as hunting continuously
+    //    loop as hunting continuously
     while (keepHunting) {
-//        for(int i=0;i < height;i++) {
-//            for(int j=0;j < width;j++) {
-//                if (!visitedArray[i][j]) {
-//                    keepKilling = true;
-//                    break;
-//                } else {
-//                    keepKilling = false;
-//                }
-//            }
-//        }
-//        check if whe need to killing
+        //        for(int i=0;i < height;i++) {
+        //            for(int j=0;j < width;j++) {
+        //                if (!visitedArray[i][j]) {
+        //                    keepKilling = true;
+        //                    break;
+        //                } else {
+        //                    keepKilling = false;
+        //                }
+        //            }
+        //        }
+        //        check if whe need to killing
         for (int j = 0; j < height; ++j) {
             for (int i = 0; i < width; ++i) {
                 if (!visitedArray[j][i]) {
@@ -400,84 +401,84 @@ vector<edge> mazeGenerator(int seed, int width, int height, bool withSeed) {
                 break;
             }
         }
-//        loop as killing continuously
+        //        loop as killing continuously
         while (keepKilling) {
-//            if (starting) {
-//                int numberOfNeighbours = 0;
+            //            if (starting) {
+            //                int numberOfNeighbours = 0;
 
-//                create a vector to store neighbour cell
+            //                create a vector to store neighbour cell
             vector<coordinator> neighbours;
-//                neighbours.clear();
+            //                neighbours.clear();
 
-//                looking for neighbours
+            //                looking for neighbours
 
-//                bool hasTop = false;
+            //                bool hasTop = false;
             if (startingCell.first - 1 > -1) {
                 coordinator topCell;
                 topCell.first = startingCell.first - 1;
                 topCell.second = startingCell.second;
                 neighbours.push_back(topCell);
-//                    hasTop = true;
-//                    numberOfNeighbours++;
+                //                    hasTop = true;
+                //                    numberOfNeighbours++;
             }
 
-//                bool hasRight = false;
+            //                bool hasRight = false;
             if (startingCell.second + 1 < width) {
                 coordinator rightCell;
                 rightCell.first = startingCell.first;
                 rightCell.second = startingCell.second + 1;
                 neighbours.push_back(rightCell);
-//                    hasRight = true;
-//                    numberOfNeighbours++;
+                //                    hasRight = true;
+                //                    numberOfNeighbours++;
             }
 
-//                bool hasBottom = false;
+            //                bool hasBottom = false;
             if (startingCell.first + 1 < height) {
                 coordinator bottomCell;
                 bottomCell.first = startingCell.first + 1;
                 bottomCell.second = startingCell.second;
                 neighbours.push_back(bottomCell);
-//                    hasBottom = true;
-//                    numberOfNeighbours++;
+                //                    hasBottom = true;
+                //                    numberOfNeighbours++;
             }
 
-//                bool hasLeft = false;
+            //                bool hasLeft = false;
             if (startingCell.second - 1 > -1) {
                 coordinator leftCell;
                 leftCell.first = startingCell.first;
                 leftCell.second = startingCell.second - 1;
                 neighbours.push_back(leftCell);
-//                    hasLeft = true;
-//                    numberOfNeighbours++;
+                //                    hasLeft = true;
+                //                    numberOfNeighbours++;
             }
 
-//                create vector to store checked neighbours randomly
+            //                create vector to store checked neighbours randomly
             vector<int> randomizedNeighbours;
-//                randomizedNeighbours.clear();
-//                coordinator nextCell;
+            //                randomizedNeighbours.clear();
+            //                coordinator nextCell;
 
-//                loop to check all neighbours randomly to find a not visited neighbour
+            //                loop to check all neighbours randomly to find a not visited neighbour
             bool keepSeeking = true;
             while (keepSeeking) {
                 int currentRandom = rand() % neighbours.size();
                 bool addingRandom = true;
-//                    check if randomized neighbour is checked or not
+                //                    check if randomized neighbour is checked or not
                 for (int randomizedNeighbour: randomizedNeighbours) {
                     if (randomizedNeighbour == currentRandom) {
                         addingRandom = false;
                         break;
                     }
                 }
-//                    if not checked, add to checked vector
+                //                    if not checked, add to checked vector
                 if (addingRandom) {
                     randomizedNeighbours.push_back(currentRandom);
                     coordinator neighbour = neighbours[currentRandom];
-//                        check if not visited
+                    //                        check if not visited
                     if (!visitedArray[neighbour.first][neighbour.second]) {
                         keepSeeking = false;
-//                            mark as visited
+                        //                            mark as visited
                         visitedArray[neighbour.first][neighbour.second] = true;
-//                            add edge
+                        //                            add edge
                         edge edge1;
                         edge1.first = startingCell;
                         edge1.second = neighbour;
@@ -487,105 +488,105 @@ vector<edge> mazeGenerator(int seed, int width, int height, bool withSeed) {
                         printLineWith("killed");
                     }
                 } else {
-//                        else check if the neighbours vector is all checked
+                    //                        else check if the neighbours vector is all checked
                     if (randomizedNeighbours.size() == neighbours.size()) {
                         keepSeeking = false;
                         keepKilling = false;
                     }
                 }
             }
-//            }
+            //            }
         }
 
-//        hunting
+        //        hunting
         bool foundStarting = false;
-//        loop from left to right, top to bottom to find unvisited cell
+        //        loop from left to right, top to bottom to find unvisited cell
         for (int k = 0; k < height; ++k) {
             for (int i = 0; i < width; ++i) {
-//                if unvisited step into an check
+                //                if unvisited step into an check
                 if (!visitedArray[k][i]) {
-//                    assume it has a least one
+                    //                    assume it has a least one
                     startingCell.first = k;
                     startingCell.second = i;
 
-//                    create a vector to store neighbour cell
+                    //                    create a vector to store neighbour cell
                     vector<coordinator> neighbours;
-//                    neighbours.clear();
+                    //                    neighbours.clear();
 
-//                bool hasTop = false;
+                    //                bool hasTop = false;
                     if (startingCell.first - 1 > -1) {
                         coordinator topCell;
                         topCell.first = startingCell.first - 1;
                         topCell.second = startingCell.second;
                         neighbours.push_back(topCell);
-//                    hasTop = true;
-//                    numberOfNeighbours++;
+                        //                    hasTop = true;
+                        //                    numberOfNeighbours++;
                     }
 
-//                bool hasRight = false;
+                    //                bool hasRight = false;
                     if (startingCell.second + 1 < width) {
                         coordinator rightCell;
                         rightCell.first = startingCell.first;
                         rightCell.second = startingCell.second + 1;
                         neighbours.push_back(rightCell);
-//                    hasRight = true;
-//                    numberOfNeighbours++;
+                        //                    hasRight = true;
+                        //                    numberOfNeighbours++;
                     }
 
-//                bool hasBottom = false;
+                    //                bool hasBottom = false;
                     if (startingCell.first + 1 < height) {
                         coordinator bottomCell;
                         bottomCell.first = startingCell.first + 1;
                         bottomCell.second = startingCell.second;
                         neighbours.push_back(bottomCell);
-//                    hasBottom = true;
-//                    numberOfNeighbours++;
+                        //                    hasBottom = true;
+                        //                    numberOfNeighbours++;
                     }
 
-//                bool hasLeft = false;
+                    //                bool hasLeft = false;
                     if (startingCell.second - 1 > -1) {
                         coordinator leftCell;
                         leftCell.first = startingCell.first;
                         leftCell.second = startingCell.second - 1;
                         neighbours.push_back(leftCell);
-//                    hasLeft = true;
-//                    numberOfNeighbours++;
+                        //                    hasLeft = true;
+                        //                    numberOfNeighbours++;
                     }
-//                    check if any neighbour is visited, if not break to find the next cel
+                    //                    check if any neighbour is visited, if not break to find the next cel
                     for (auto neighbour: neighbours) {
                         if (visitedArray[neighbour.first][neighbour.second]) {
                             foundStarting = true;
                             break;
                         }
                     }
-//                    if any neighbour is visited
+                    //                    if any neighbour is visited
                     if (foundStarting) {
-//                        create a checked neighbours vector
+                        //                        create a checked neighbours vector
                         vector<int> randomizedNeighbours;
-//                        randomizedNeighbours.clear();
+                        //                        randomizedNeighbours.clear();
 
-//                        loop to randomized through neighbours vector
+                        //                        loop to randomized through neighbours vector
                         bool keepSeeking = true;
                         while (keepSeeking) {
                             int currentRandom = rand() % neighbours.size();
                             bool addingRandom = true;
-//                            check if randomized neighbour is checked or not
+                            //                            check if randomized neighbour is checked or not
                             for (int randomizedNeighbour: randomizedNeighbours) {
                                 if (randomizedNeighbour == currentRandom) {
                                     addingRandom = false;
                                     break;
                                 }
                             }
-//                            if not checked, add to checked vector
+                            //                            if not checked, add to checked vector
                             if (addingRandom) {
                                 randomizedNeighbours.push_back(currentRandom);
                                 coordinator neighbour = neighbours[currentRandom];
-//                                check if visited
+                                //                                check if visited
                                 if (visitedArray[neighbour.first][neighbour.second]) {
                                     keepSeeking = false;
-//                                    mark the starting cell is visisted
+                                    //                                    mark the starting cell is visisted
                                     visitedArray[startingCell.first][startingCell.second] = true;
-//                                    add edge
+                                    //                                    add edge
                                     edge edge1;
                                     edge1.first = startingCell;
                                     edge1.second = neighbour;
@@ -593,7 +594,7 @@ vector<edge> mazeGenerator(int seed, int width, int height, bool withSeed) {
                                     printLineWith("hunted");
                                 }
                             } else {
-//                                else check if the neighbours vector is all checked
+                                //                                else check if the neighbours vector is all checked
                                 if (randomizedNeighbours.size() == neighbours.size()) {
                                     keepSeeking = false;
                                     foundStarting = false;
@@ -610,7 +611,7 @@ vector<edge> mazeGenerator(int seed, int width, int height, bool withSeed) {
                 break;
             }
         }
-//        check if need hunting
+        //        check if need hunting
         for (int l = 0; l < height; ++l) {
             for (int i = 0; i < width; ++i) {
                 if (!visitedArray[l][i]) {
@@ -626,22 +627,22 @@ vector<edge> mazeGenerator(int seed, int width, int height, bool withSeed) {
         }
     }
 
-//    print edges
+    //    print edges
     for (auto edge1: edges) {
         cout << edge1.first.first << " " << edge1.first.second << " : " << edge1.second.first << " "
-             << edge1.second.second << endl;
+                << edge1.second.second << endl;
     }
 
-//    mt19937 generator;
-//    if (withSeed) {
-//        generator.seed(time(nullptr) + seed);
-//    } else {
-//        generator.seed(time(nullptr));
-//    }
-//    uniform_int_distribution<u_int32_t> dice(0, width);
-//    dice(generator);
-//    uniform_int_distribution<u_int32_t> dice(0, height);
-//    dice(generator);
+    //    mt19937 generator;
+    //    if (withSeed) {
+    //        generator.seed(time(nullptr) + seed);
+    //    } else {
+    //        generator.seed(time(nullptr));
+    //    }
+    //    uniform_int_distribution<u_int32_t> dice(0, width);
+    //    dice(generator);
+    //    uniform_int_distribution<u_int32_t> dice(0, height);
+    //    dice(generator);
 
     return edges;
 }
